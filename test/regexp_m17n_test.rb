@@ -6,8 +6,7 @@ class RegexpTest < MiniTest::Unit::TestCase
   def test_non_empty_string
     Encoding.list.each do |enc|
       next if %w(ISO-2022-JP ISO-2022-JP-2 UTF-7).include?(enc.to_s)
-      encoded = '.'.encode(enc)
-      assert(RegexpM17N.non_empty?(encoded))
+      assert(RegexpM17N.non_empty?('.'.encode(enc)))
     end
   end
 end
